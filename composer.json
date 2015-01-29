@@ -1,0 +1,23 @@
+{
+    "name": "jeremy-tubbs/laravel-post",
+    "description": "",
+    "authors": [
+        {
+            "name": "Jeremy Tubbs",
+            "email": "jeremytubbs@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.0",
+        "illuminate/support": "4.1.*"
+    },
+    "autoload": {
+        "classmap": [
+            "src/migrations"
+        ],
+        "psr-0": {
+            "JeremyTubbs\\LaravelPost\\": "src/"
+        }
+    },
+    "minimum-stability": "stable"
+}
