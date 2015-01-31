@@ -1,6 +1,6 @@
 {
     "name": "jeremy-tubbs/laravel-post",
-    "description": "",
+    "description": "Ghost style blog with AngularJS and CommonMark",
     "authors": [
         {
             "name": "Jeremy Tubbs",
