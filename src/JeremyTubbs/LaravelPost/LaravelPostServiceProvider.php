@@ -19,6 +19,12 @@ class LaravelPostServiceProvider extends ServiceProvider {
 	public function boot()
 	{
 		$this->package('jeremy-tubbs/laravel-post');
+
+		if (\Config::get('laravel-post::routes.use_package_routes', true))
+		{
+			include __DIR__.'/../../routes.php';
+		}
+
 	}
 
 	/**

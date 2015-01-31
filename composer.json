@@ -13,7 +13,12 @@
     },
     "autoload": {
         "classmap": [
-            "src/migrations"
+            "src/controllers",
+            "src/migrations",
+            "src/models",
+        ],
+        "files": [
+            "src/libraries/helpers.php"
         ],
         "psr-0": {
             "JeremyTubbs\\LaravelPost\\": "src/"
