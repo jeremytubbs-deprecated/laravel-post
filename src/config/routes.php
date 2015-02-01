@@ -20,4 +20,14 @@ return array(
 	 */
 	'relationship_uri_prefix' => false,
 
+	/**
+	 * Before filter for admin routes.
+	 */
+	'before_filter' => 'auth',
+
+	/**
+	 * Route prefix for admin area.
+	 */
+	'route_prefix' => 'admin',
+
 );
