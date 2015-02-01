@@ -1,5 +1,6 @@
 <?php namespace JeremyTubbs\LaravelPost;
 
+
 class PostsController extends \BaseController {
 
 	/**
@@ -10,7 +11,8 @@ class PostsController extends \BaseController {
 	 */
 	public function index()
 	{
-		//
+		$posts = Post::all();
+		return View::make('posts.index')->with('posts', $posts);
 	}
 
 	/**

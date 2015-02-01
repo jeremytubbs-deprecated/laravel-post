@@ -11,7 +11,7 @@ return array(
 	/**
 	 * Base URI of the package's pages, e.g. "blog" in http://domain.com/blog and http://domain.com/blog/my-post
 	 */
-	'base_uri' => 'blog',
+	'base_uri' => 'posts',
 
 	/**
 	 * Before filter for admin routes.
@@ -21,6 +21,6 @@ return array(
 	/**
 	 * Route prefix for admin area.
 	 */
-	'route_prefix' => 'admin',
+	'route_prefix' => 'admin'
 
 );
