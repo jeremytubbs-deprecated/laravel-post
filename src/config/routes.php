@@ -14,13 +14,6 @@ return array(
 	'base_uri' => 'blog',
 
 	/**
-	 * URI prefix of the blog relationship filter
-	 *
-	 * @type mixed false | string
-	 */
-	'relationship_uri_prefix' => false,
-
-	/**
 	 * Before filter for admin routes.
 	 */
 	'before_filter' => 'auth',
