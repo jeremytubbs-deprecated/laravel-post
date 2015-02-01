@@ -1,6 +1,6 @@
-var laravelPost = angular.module('laravelPost', ['ui.codemirror', 'ngAnimate']);
+var LaravelPost = angular.module('LaravelPost', ['ui.codemirror']);
 
-laravelPost.controller('EditorController', ['$scope', '$window', function($scope, $window) {
+LaravelPost.controller('EditorController', ['$scope', '$window', function($scope, $window) {
     //codemirror editor settings
     $scope.editorOptions = {
         lineWrapping : true,
@@ -21,7 +21,7 @@ laravelPost.controller('EditorController', ['$scope', '$window', function($scope
 }]);
 
 
-laravelPost.controller('FooterController', ['$scope', function($scope) {
+LaravelPost.controller('FooterController', ['$scope', function($scope) {
     //set defaults for publish status
      $scope.init = function(text, status) {
         $scope.submitText = text;
@@ -34,7 +34,7 @@ laravelPost.controller('FooterController', ['$scope', function($scope) {
 }]);
 
 //commonmark directive
-laravelPost.directive('commonmark', function () {
+LaravelPost.directive('commonmark', function () {
     var writer = new commonmark.HtmlRenderer();
     return {
         restrict: 'A',
@@ -46,7 +46,7 @@ laravelPost.directive('commonmark', function () {
 });
 
 //commonmark filter
-laravelPost.filter('commonmark', function ($sce) {
+LaravelPost.filter('commonmark', function ($sce) {
     var reader = commonmark.DocParser();
     var writer = new commonmark.HtmlRenderer();
     return function (value) {
