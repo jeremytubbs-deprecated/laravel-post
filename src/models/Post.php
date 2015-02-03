@@ -1,9 +1,7 @@
 <?php namespace JeremyTubbs\LaravelPost;
 
-use Illuminate\Database\Eloquent\SoftDeletingTrait;
-
 class Post extends \Eloquent {
-	use SoftDeletingTrait;
+
 	protected $fillable = [];
 	protected $dates = ['deleted_at', 'published_at'];
 

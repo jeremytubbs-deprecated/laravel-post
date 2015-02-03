@@ -1,6 +1,7 @@
 {
     "name": "jeremy-tubbs/laravel-post",
     "description": "Ghost style blog with AngularJS and CommonMark",
+    "keywords": ["laravel","blog","markdown"],
     "authors": [
         {
             "name": "Jeremy Tubbs",
@@ -16,7 +17,7 @@
         "classmap": [
             "src/controllers",
             "src/migrations",
-            "src/models",
+            "src/models"
         ],
         "files": [
             "src/libraries/helpers.php"
