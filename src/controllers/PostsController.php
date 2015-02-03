@@ -12,7 +12,7 @@ class PostsController extends \BaseController {
 	public function index()
 	{
 		$posts = Post::all();
-		return \View::make('laravel-post::posts.index')->with('posts', $posts);
+		return \View::make('laravel-post::posts.index', compact('post'));
 	}
 
 	/**
@@ -23,7 +23,7 @@ class PostsController extends \BaseController {
 	 */
 	public function create()
 	{
-		//
+		return \View::make('laravel-post::posts.create');
 	}
 
 	/**
@@ -34,7 +34,29 @@ class PostsController extends \BaseController {
 	 */
 	public function store()
 	{
-		//
+		$input = array(
+			'title' => Input::get('title'),
+			'markdown' => Input::get('markdown'),
+			'status' => Input::get('status')
+		);
+
+		$post = new Post();
+		$post->user_id = Auth::user()->id;
+		$post->created_by = Auth::user()->id;
+		$post->title = $input['title'];
+		$post->markdown = $input['markdown'];
+		$post->slug = getSlug($input['title'], 'Post');
+		if($input['status'] == 'true') {
+			$post->published_at = time();
+			$post->published_by = \Auth::user()->id;
+			$message = $input['title'] . ' published.';
+		} else {
+			$message = $input['title'] . ' saved.';
+		}
+		$post->status = $input['status'] == 'true' ? 1 : 0;
+		$post->save();
+
+		return \Redirect::to('posts')->with('success', $message);
 	}
 
 	/**
@@ -44,9 +66,10 @@ class PostsController extends \BaseController {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function show($id)
+	public function show($slug)
 	{
-		//
+		$post = Post::where('slug', '=', $slug)->first();
+		return \View::make('laravel-post::posts.show', compact('post'));
 	}
 
 	/**
@@ -58,7 +81,8 @@ class PostsController extends \BaseController {
 	 */
 	public function edit($id)
 	{
-		//
+		$post = Post::find($id);
+		return \View::make('laravel-post::posts.edit', compact('post'));
 	}
 
 	/**
@@ -70,7 +94,29 @@ class PostsController extends \BaseController {
 	 */
 	public function update($id)
 	{
-		//
+		$input = array(
+			'title' => Input::get('title'),
+			'markdown' => Input::get('markdown'),
+			'status' => Input::get('status')
+		);
+
+		$post = Post::find($id);
+		$post->user_id = \Auth::user()->id;
+		$post->created_by = \Auth::user()->id;
+		$post->title = $input['title'];
+		$post->markdown = $input['markdown'];
+		$post->slug = getSlug($input['title'], 'Post');
+		if($input['status'] == 'true') {
+			$post->published_at = time();
+			$post->published_by = \Auth::user()->id;
+			$message = $input['title'] . ' published post updated.';
+		} else {
+			$message = $input['title'] . 'unpublished updates saved.';
+		}
+		$post->status = $input['status'] == 'true' ? 1 : 0;
+		$post->save();
+
+		return \Redirect::to('posts')->with('success', $message);
 	}
 
 	/**
@@ -82,7 +128,9 @@ class PostsController extends \BaseController {
 	 */
 	public function destroy($id)
 	{
-		//
+		$post = Post::find($id);
+		$post->delete();
+		return \Redirect::route('posts')->with('success', 'Post deleted.');
 	}
 
 }

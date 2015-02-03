@@ -1,3 +1,3 @@
 @extends('layouts.master')
 
-hello posts
+index
