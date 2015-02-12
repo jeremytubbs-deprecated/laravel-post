@@ -9,3 +9,6 @@ php artisan config:publish --path="workbench/jeremy-tubbs/laravel-post/src/confi
 
 - run migrations
 php artisan migrate --bench="jeremy-tubbs/laravel-post"
+
+- publish package assets
+php artisan asset:publish --bench="jeremy-tubbs/laravel-post"

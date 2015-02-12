@@ -58,12 +58,13 @@
 @stop
 
 @section('styles')
-{{ HTML::style("css/vendor/codemirror.css") }}
+{{ HTML::style('packages/jeremy-tubbs/laravel-post/css/LaravelPost.css') }}
+{{ HTML::style('css/vendor/codemirror.css') }}
 @stop
 
 @section('ngScripts')
 {{ HTML::script('js/vendor/angular.js') }}
-{{ HTML::script('js/app/LaravelPost.js') }}
+{{ HTML::script('packages/jeremy-tubbs/laravel-post/js/LaravelPost.js') }}
 {{ HTML::script('js/vendor/codemirror.js') }}
 {{ HTML::script('js/vendor/ui-codemirror.min.js') }}
 {{ HTML::script('js/vendor/commonmark.js') }}
